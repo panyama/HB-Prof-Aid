@@ -120,8 +120,6 @@
 		<SubRoutine SubRoutineName="Training">
 			<TrainSkillAction NpcEntry="2327" Location="-8521.526, 816.257, 106.5195" />
 		</SubRoutine>
-
-	
 	</SubRoutine>
 	
 
