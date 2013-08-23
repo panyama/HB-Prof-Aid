@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
++====================================================+
+|								panYama - Customer Tailored Profiles								|
+|																														|
+|					Github: https://github.com/panyama/PanYamaCommunity					|
+|											Profile Type: Profession											|
+|												Faction: Alliance													|
+|											Name: First Aid 1-600								            |
++====================================================+
+-->
+<Professionbuddy>
+	<!-- Welcome and inform user of the profile type and changing secondary botbase-->
+	<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] First Aid 1-600: &quot;,Colors.White,&quot;Loading&quot;);" />
+	<If Condition="SecondaryBot.Name != &quot;Questing&quot;" IgnoreCanRun="True">
+		<ChangeBotAction BotName="Questing" />
+	</If>
+	<!-- Check if I'm a Horde or Alliance faction player -->
+	<If Condition="Me.IsHorde" IgnoreCanRun="True">
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] &quot;,Colors.White,&quot;This profile is for the faction: Alliance&quot;);" />
+		<CustomAction Code="MessageBox.Show(&quot;[panYama] This profile is for the faction: Alliance&quot;);" />
+        <CustomAction Code="TreeRoot.Stop();" />
+	</If>
+	<If Condition="Me.IsAlliance" IgnoreCanRun="True">
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] &quot;,Colors.White,&quot;Welcome Alliance for Lordaeron!&quot;);" />
+	</If>
+	
+	<!-- Teleporting Check: Kalimdor, Pandaria, Outland, Northrend to Stormwind -->
+	<!-- check if character is within the following continents and start moving to Easter Kingdom -->
+	<If Condition="Me.MapId == 870" IgnoreCanRun="True">
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Location: &quot;,Colors.White,&quot;You're located in Pandaria&quot;);" />
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Action: &quot;,Colors.White,&quot;Navigate to the Stormwind Portal&quot;);" />
+			<FlyToAction Dismount="True" Location="878.4182, 224.8421, 503.0966" />
+			<MoveToAction Location="834.8522, 189.3546, 503.42" MoveType="Location" Pathing="Navigator" Entry="0" />
+			<MoveToAction Location="864.0364, 214.2265, 521.8318" MoveType="Location" Pathing="ClickToMove" Entry="0" />
+			<MoveToAction Location="827.2407, 179.1529, 519.5656" MoveType="Location" Pathing="Navigator" Entry="0" />
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Interaction: &quot;,Colors.White,&quot;We are going to use: Portal Stormwind&quot;);" />
+			<InteractionAction InteractType="GameObject" Entry="215119" InteractDelay="2000" GameObjectType="Transport" SpellFocus="Anvil" />
+			<WaitAction Condition="Me.MapId == 0" Timeout="20000" />
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Location: &quot;,Colors.White,&quot;We have safely transported to: Stormwind&quot;);" />
+    </If>
+	<If Condition="Me.MapId == 571" IgnoreCanRun="True">
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Location: &quot;,Colors.White,&quot;You're located in Northrend&quot;);" />
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Action: &quot;,Colors.White,&quot;Navigate to the Stormwind Portal&quot;);" />
+			<FlyToAction Dismount="True" Location="5723.053, 738.2228, 641.7697" />
+			<MoveToAction Location="5720.123, 722.7263, 641.5825" MoveType="Location" Pathing="Navigator" Entry="0" />
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Interaction: &quot;,Colors.White,&quot;We are going to use: Portal Stormwind&quot;);" />
+			<InteractionAction InteractType="GameObject" Entry="190960" InteractDelay="2000" GameObjectType="Transport" SpellFocus="Anvil" />
+			<WaitAction Condition="Me.MapId == 0" Timeout="20000" />
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Location: &quot;,Colors.White,&quot;We have safely transported to: Stormwind&quot;);" />
+    </If>
+	<If Condition="Me.MapId == 530" IgnoreCanRun="True">
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Location: &quot;,Colors.White,&quot;You're located in Outland&quot;);" />
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Action: &quot;,Colors.White,&quot;Navigate to the Stormwind Portal&quot;);" />
+			<FlyToAction Dismount="True" Location="-1941.991, 5393.019, -12.4277" />
+			<MoveToAction Location="-1892.777, 5390.678, -12.4277" MoveType="Location" Pathing="Navigator" Entry="0" />
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Interaction: &quot;,Colors.White,&quot;We are going to use: Portal Stormwind&quot;);" />
+			<InteractionAction InteractType="GameObject" Entry="183325" InteractDelay="2000" GameObjectType="Transport" SpellFocus="Anvil" />
+			<WaitAction Condition="Me.MapId == 0" Timeout="20000" />
+		<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Location: &quot;,Colors.White,&quot;We have safely transported to: Stormwind&quot;);" />
+    </If>
+	 
+	<!-- Training Check: see if you have learned First Aid, and if you need to train -->
+	<!-- We will be training at 75,150,225,300,375,450,525, to 600! -->
+    <If Condition="FirstAid.Level &lt; 600" IgnoreCanRun="True">
+		<CallSubRoutine SubRoutineName="LevelTo600" />
+	</If>
+  
+	<SubRoutine SubRoutineName="LevelTo600">
+		<!-- If I'm below First Aid 80 (Linen Cloth) Execute Linen Cloth Subroutine-->
+		<If Condition="FirstAid.Level &lt; 80" IgnoreCanRun="True">
+		  <If Condition="InbagCount(2589) &lt; 120" IgnoreCanRun="True">
+			<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Farm: &quot;,Colors.White,&quot;We need Linen Cloth - Farming Cloth&quot;);" />
+			<CallSubRoutine SubRoutineName="Linen Cloth" />
+			<CustomAction Code="Log (Colors.Turquoise,&quot;[panYama] Loaded: &quot;,Colors.White,&quot;Linen Cloth - Farming&quot;);" />
+		  </If>
+		  <If Condition="InbagCount(2589) &gt;= 120" IgnoreCanRun="True">
+			<CallSubRoutine SubRoutineName="1to75" />
+		  </If>
+		</If>
+		
+		<!-- If I'm loading First Aid 80 (Linen Cloth) Execute Farm Linen Cloth till itemcount: 120 -->
+		<SubRoutine SubRoutineName="Linen Cloth">
+			<LoadProfileAction Path="Cloth\Linen Cloth.xml" ProfileType="Honorbuddy" />
+			<If Condition="FirstAid.Level == 0" IgnoreCanRun="True">
+					<CallSubRoutine SubRoutineName="Training First Aid" />
+			</If>
+			<While Condition="true" IgnoreCanRun="True">
+			  <If Condition="InbagCount(2589) &gt;= 121" IgnoreCanRun="True">
+				<CallSubRoutine SubRoutineName="1to75" />
+			  </If>
+			</While>
+		</SubRoutine>
+	
+		<!-- Make Recipe First Aid 80 (Linen Cloth) - Linen Bandage/Heavy Linen Bandage-->
+		<SubRoutine SubRoutineName="1to75">
+			<CallSubRoutine SubRoutineName="Training First Aid" />
+			<While Condition="FirstAid.Level &lt; 40" IgnoreCanRun="False">
+			  <CastSpellAction Entry="3275" Repeat="1" RepeatType="Specific" CastOnItem="False" ItemId="0" ItemType="Chest" />
+			</While>
+			<CallSubRoutine SubRoutineName="Training First Aid" />
+			<While Condition="FirstAid.Level &lt; 50" IgnoreCanRun="False">
+			  <CastSpellAction Entry="3276" Repeat="1" RepeatType="Specific" CastOnItem="False" ItemId="0" ItemType="Chest" />
+			</While>
+			<CallSubRoutine SubRoutineName="Training First Aid" />
+			<While Condition="FirstAid.Level &lt; 80" IgnoreCanRun="False">
+			  <CastSpellAction Entry="3276" Repeat="1" RepeatType="Specific" CastOnItem="False" ItemId="0" ItemType="Chest" />
+			</While>
+		</SubRoutine>
+
+	 <!-- Subroutines - All subroutines will be submitted below -->
+	 <!-- avoiding cluster's of text, added per section -->
+	  
+	 <!-- Training Subroutines -->
+		<SubRoutine SubRoutineName="Training First Aid">
+			<FlyToAction Dismount="True" Location="-8612.659, 783.0335, 97.9932" />
+			<MoveToAction MoveType="NpcByID" Pathing="Navigator" Entry="2327" Location="-8521.526, 816.257, 106.5195" />
+			<TrainSkillAction NpcEntry="2327" Location="-8521.526, 816.257, 106.5195" />
+		</SubRoutine>
+		<SubRoutine SubRoutineName="Training">
+			<TrainSkillAction NpcEntry="2327" Location="-8521.526, 816.257, 106.5195" />
+		</SubRoutine>
+
+	
+	</SubRoutine>
+	
+
+</Professionbuddy>

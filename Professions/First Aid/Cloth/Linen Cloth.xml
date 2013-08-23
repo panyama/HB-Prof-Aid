@@ -1,0 +1,77 @@
+<!--
++====================================================+
+|								panYama - Customer Tailored Profiles								|
+|																														|
+|					Github: https://github.com/panyama/PanYamaCommunity					|
+|											Profile Type: Profession											|
+|												Faction: Alliance													|
+|									Name: First Aid 1-80 - Linen Cloth						            |
++====================================================+
+-->
+<HBProfile creator="panYama" version="1.0">
+
+<Name>Linen Cloth - FarmCount 120</Name>
+   <MinLevel>0</MinLevel>
+   <MaxLevel>91</MaxLevel>
+   
+   <MinDurability>0.4</MinDurability>
+   <MinFreeBagSlots>4</MinFreeBagSlots>
+    
+   <MailGrey>False</MailGrey>
+   <MailWhite>False</MailWhite>
+   <MailGreen>True</MailGreen>
+   <MailBlue>True</MailBlue>
+   <MailPurple>True</MailPurple>
+   
+   <SellGrey>True</SellGrey>
+   <SellWhite>True</SellWhite>
+   <SellGreen>True</SellGreen>
+   <SellBlue>False</SellBlue>
+   <SellPurple>False</SellPurple>
+   
+   <TargetElites>True</TargetElites>
+   
+   <AvoidMobs>
+       
+   </AvoidMobs>
+   
+   <Blackspots>
+
+   </Blackspots>
+   
+	<Mailboxes>
+		<Mailbox  X="-10642.32" Y="1155.493" Z="33.32156"  />
+	</Mailboxes>
+	
+	<Vendors>
+		<Vendor Name="William MacGregor" Entry="1668" Type="Repair" X="-10653.31" Y="996.5868" Z="32.87471" />
+		<Vendor Name="Gina MacGregor" Entry="843" Type="Food" X="-10659.66" Y="1000.524" Z="32.87485" />
+	</Vendors>
+
+
+   <QuestOrder>
+		<CustomBehavior File="Message" Text="Farming:" LogColor="Turquoise" />
+		<CustomBehavior File="Message" Text="120 Linen Cloth" LogColor="White" />
+		<CustomBehavior File="UserSettings" LootMobs="True" UseFlightPaths="True" PullDistance="30" />
+		<CustomBehavior File="Message" Text="We shall farm untill we have 120 Linen Cloth" LogColor="White" />
+
+		<!-- River Paws-->
+		<CustomBehavior File="FlyTo" X="-10656.85" Y="1230.281" Z="34.88405"  />
+		<CustomBehavior File="CollectThings" MobId="123" MobId2="501" MobId3="452" MobId4="124" MobId5="98" MobId6="453" CollectItemId="2589" CollectItemCount="121" HuntingGroundRadius="200" NonCompeteDistance="1" MobState="Alive" >
+			<Hotspot X="-10663.68" Y="1234.553" Z="35.00806" />
+			<Hotspot X="-10638.05" Y="1236.61" Z="34.78116" />
+			<Hotspot X="-10837.61" Y="1323.444" Z="35.3971" />
+			<Hotspot X="-10860.63" Y="1168.756" Z="37.37348" />
+			<Hotspot X="-11045.37" Y="1034.691" Z="36.71028" />
+			<Hotspot X="-11138.38" Y="905.8407" Z="38.76693" />
+			<Hotspot X="-11207.44" Y="876.2094" Z="49.62608" />
+			<Hotspot X="-11197.39" Y="794.2863" Z="38.49372" />
+			<Hotspot X="-11109.22" Y="786.7582" Z="36.88137" />
+			<Hotspot X="-11044.19" Y="777.0522" Z="39.05764" />
+			<Hotspot X="-10620.12" Y="1946.751" Z="37.68773" />
+			<Hotspot X="-10544.06" Y="1957.242" Z="36.88102" />
+		</CustomBehavior>
+	</QuestOrder>
+</HBProfile>
+
+
