@@ -26,7 +26,7 @@ Since these are free profiles, support towards them has less priority then those
 
     [BuddyStory](http://store.buddyauth.com/)
 	
-
+[BuddyStory](http://store.buddyauth.com/)
   
 ## Website/Forum
 We are always available on the Honorbuddy forums and on our website.
