@@ -24,20 +24,13 @@ These profiles you find here are free of use, and can be modified by you as user
 
 Since these are free profiles, support towards them has less priority then those that are paid for. My paid profiles can be found at the BuddyStore. By buying my profiles you do not support my beer, coffee, or sandwhiches but rather my medical bill, I thank you for doing so.
 
-    [BuddyStory](http://store.buddyauth.com/)
-	
-[BuddyStory](http://store.buddyauth.com/)
+[BuddyStore](http://store.buddyauth.com/)
   
-## Website/Forum
-We are always available on the Honorbuddy forums and on our website.
+## Support (Helpdesk)
+You can contact me through the forums by the following link.
 * [Honorbuddy Forums](http://www.thebuddyforum.com/members/709-panyama.html)
-* [panYama.info](www.panyama.info)
 
 Incase of a more private question please see the section below.
-
-## Contact
-If you are in need of personal questions, help, advise, or need to discuss something else, please use the email below.  
-[admin@panyama.info](admin@panyama.info)
 
 ## Reporting Bugs
 When reporting a bug please include your full log file (found in the "Logs" directory), then explain in full detail what the bug consists of, if possible a screenshot that could visually support your problem is useful in tracking down the bug.
